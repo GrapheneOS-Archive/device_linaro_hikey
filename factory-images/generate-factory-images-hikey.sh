@@ -14,18 +14,6 @@
 
 
 DEVICE_DIR=device/linaro/hikey/
-DEVICE=hikey
-PRODUCT=hikey
-
-BUILD=eng.`whoami`
-BUILDNAME=`ls ${ANDROID_BUILD_TOP}/${PRODUCT}-img-${BUILD}.zip 2> /dev/null`
-if [ $? -ne 0 ]; then
-  VERSION=linaro-`date +"%Y.%m.%d"`
-else
-  BUILDNAME=`ls ${ANDROID_BUILD_TOP}/${PRODUCT}-img-*.zip 2> /dev/null`
-  BUILD=`basename ${BUILDNAME} | cut -f3 -d'-' | cut -f1 -d'.'`
-  VERSION=$BUILD
-fi
 
 # Prepare the staging directory
 rm -rf tmp
