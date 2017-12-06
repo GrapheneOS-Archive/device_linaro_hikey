@@ -41,6 +41,10 @@
 #if GRALLOC_ARM_DMA_BUF_MODULE
 #include <ion/ion.h>
 #include "ion_4.12.h"
+
+#define ION_SYSTEM	(char*)"ion_system_heap"
+#define ION_CMA		(char*)"linux,cma"
+
 #endif
 
 #if GRALLOC_SIMULATE_FAILURES
@@ -144,7 +148,10 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 
 		if (m->gralloc_legacy_ion)
 		{
-			ret = ion_alloc(m->ion_client, size, 0, ION_HEAP_SYSTEM_MASK, 0, &(ion_hnd));
+			if (usage & GRALLOC_USAGE_HW_FB)
+				ret = ion_alloc(m->ion_client, size, 0, ION_HEAP_TYPE_DMA_MASK, 0, &(ion_hnd));
+			else
+				ret = ion_alloc(m->ion_client, size, 0, ION_HEAP_SYSTEM_MASK, 0, &(ion_hnd));
 
 			if (ret != 0)
 			{
@@ -175,7 +182,10 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 		}
 		else
 		{
-			ret = ion_alloc_fd(m->ion_client, size, 0, 1 << m->system_heap_id, 0, &(shared_fd));
+			if (usage & GRALLOC_USAGE_HW_FB)
+				ret = ion_alloc_fd(m->ion_client, size, 0, 1 << m->cma_heap_id, 0, &(shared_fd));
+			else
+				ret = ion_alloc_fd(m->ion_client, size, 0, 1 << m->system_heap_id, 0, &(shared_fd));
 
 			if (ret != 0)
 			{
@@ -318,6 +328,7 @@ static int gralloc_alloc_buffer(alloc_device_t *dev, size_t size, int usage, buf
 
 }
 
+#ifndef DISABLE_FRAMEBUFFER_HAL
 static int gralloc_alloc_framebuffer_locked(alloc_device_t *dev, size_t size, int usage, buffer_handle_t *pHandle)
 {
 	private_module_t *m = reinterpret_cast<private_module_t *>(dev->common.module);
@@ -427,6 +438,7 @@ static int gralloc_alloc_framebuffer(alloc_device_t *dev, size_t size, int usage
 	pthread_mutex_unlock(&m->lock);
 	return err;
 }
+#endif /* DISABLE_FRAMEBUFFER_HAL */
 
 static int alloc_device_alloc(alloc_device_t *dev, int w, int h, int format, int usage, buffer_handle_t *pHandle, int *pStride)
 {
@@ -534,7 +546,7 @@ static int alloc_device_alloc(alloc_device_t *dev, int w, int h, int format, int
 
 	int err;
 
-#ifndef MALI_600
+#ifndef DISABLE_FRAMEBUFFER_HAL
 
 	if (usage & GRALLOC_USAGE_HW_FB)
 	{
@@ -681,9 +693,9 @@ static int alloc_device_close(struct hw_device_t *device)
 }
 
 #if GRALLOC_ARM_DMA_BUF_MODULE
-static int find_system_heap_id(int ion_client)
+static int find_ion_heap_id(int ion_client, char* name)
 {
-	int i, ret, cnt, system_heap_id = -1;
+	int i, ret, cnt, heap_id = -1;
 	struct ion_heap_data *data;
 
 	ret = ion_query_heap_cnt(ion_client, &cnt);
@@ -710,8 +722,8 @@ static int find_system_heap_id(int ion_client)
 	{
 		for (i = 0; i < cnt; i++) {
 			struct ion_heap_data *dat = (struct ion_heap_data *)data;
-			if (strcmp(dat[i].name, "ion_system_heap") == 0) {
-				system_heap_id = dat[i].heap_id;
+			if (strcmp(dat[i].name, name) == 0) {
+				heap_id = dat[i].heap_id;
 				break;
 			}
 		}
@@ -719,12 +731,12 @@ static int find_system_heap_id(int ion_client)
 		if (i > cnt)
 		{
 			AERR("No System Heap Found amongst %d heaps\n", cnt);
-			system_heap_id = -1;
+			heap_id = -1;
 		}
 	}
 
 	free(data);
-	return system_heap_id;
+	return heap_id;
 }
 #endif
 
@@ -778,8 +790,9 @@ int alloc_device_open(hw_module_t const *module, const char *name, hw_device_t *
 
 	if (!m->gralloc_legacy_ion)
 	{
-		m->system_heap_id = find_system_heap_id(m->ion_client);
-		if (m->system_heap_id < 0)
+		m->system_heap_id = find_ion_heap_id(m->ion_client, ION_SYSTEM);
+		m->cma_heap_id = find_ion_heap_id(m->ion_client, ION_CMA);
+		if (m->system_heap_id < 0 || m->cma_heap_id < 0)
 		{
 			delete dev;
 			ion_close(m->ion_client);

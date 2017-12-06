@@ -113,6 +113,7 @@ struct private_module_t
 	buffer_handle_t currentBuffer;
 	int ion_client;
 	int system_heap_id;
+	int cma_heap_id;
 	bool gralloc_legacy_ion;
 
 	struct fb_var_screeninfo info;
