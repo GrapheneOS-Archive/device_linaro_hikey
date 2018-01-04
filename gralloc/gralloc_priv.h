@@ -166,7 +166,10 @@ struct private_handle_t
 	int     size;
 	int     width;
 	int     height;
-	int     format;
+	union {
+		int     format;
+		int	req_format; /* same name as gralloc960 */
+	};
 	int     stride;
 	union
 	{
@@ -193,10 +196,10 @@ struct private_handle_t
 		void *fb_paddr;
 		uint64_t fb_paddr_padding;
 	};
+	int	byte_stride;
 #if GRALLOC_ARM_DMA_BUF_MODULE
 	ion_user_handle_t ion_hnd;
 #endif
-
 #if GRALLOC_ARM_DMA_BUF_MODULE
 #define GRALLOC_ARM_NUM_FDS 1
 #else
