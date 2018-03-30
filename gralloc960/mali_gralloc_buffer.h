@@ -116,7 +116,10 @@ struct private_handle_t
 		void *base;
 		uint64_t padding;
 	};
-	uint64_t consumer_usage;
+	union {
+		uint64_t consumer_usage;
+		uint64_t usage;
+	};
 	uint64_t producer_usage;
 	uint64_t backing_store_id;
 	int backing_store_size;
