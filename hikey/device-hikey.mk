@@ -23,6 +23,15 @@ PRODUCT_COPY_FILES +=   $(TARGET_PREBUILT_KERNEL):kernel \
 			device/linaro/hikey/ueventd.common.rc:root/ueventd.hikey.rc \
 			device/linaro/hikey/common.kl:system/usr/keylayout/hikey.kl
 
+# Copy BT firmware
+PRODUCT_COPY_FILES += \
+	device/linaro/hikey/bt-wifi-firmware-util/TIInit_11.8.32.bts:$(TARGET_OUT_ETC)/firmware/ti-connectivity/TIInit_11.8.32.bts
+
+# Copy wlan firmware
+PRODUCT_COPY_FILES += \
+	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-fw-4.bin:$(TARGET_OUT_ETC)/firmware/ti-connectivity/wl18xx-fw-4.bin \
+	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-conf.bin:$(TARGET_OUT_ETC)/firmware/ti-connectivity/wl18xx-conf.bin
+
 # Build HiKey HDMI audio HAL
 PRODUCT_PACKAGES += audio.primary.hikey
 
