@@ -26,9 +26,18 @@ PRODUCT_COPY_FILES +=	$(LOCAL_PATH)/fstab.hikey960:root/fstab.hikey960 \
 			frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
 			frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
 
+# Copy BT firmware
+PRODUCT_COPY_FILES += \
+	device/linaro/hikey/bt-wifi-firmware-util/TIInit_11.8.32-pcm-960.bts:$(TARGET_COPY_OUT_VENDOR)/firmware/ti-connectivity/TIInit_11.8.32.bts
+
+# Copy wlan firmware
+PRODUCT_COPY_FILES += \
+	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-fw-4.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/ti-connectivity/wl18xx-fw-4.bin \
+	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-conf-wl1837mod.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/ti-connectivity/wl18xx-conf.bin
+
 # Copy hifi firmware
 PRODUCT_COPY_FILES += \
-	device/linaro/hikey/hifi/firmware/hifi-hikey960.img:system/etc/firmware/hifi/hifi.img
+	device/linaro/hikey/hifi/firmware/hifi-hikey960.img:$(TARGET_COPY_OUT_VENDOR)/firmware/hifi/hifi.img
 
 
 # Build HiKey960 HDMI audio HAL. Experimental only may not work. FIXME
