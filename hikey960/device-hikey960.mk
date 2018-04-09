@@ -23,7 +23,7 @@ PRODUCT_COPY_FILES +=	$(LOCAL_PATH)/fstab.hikey960:root/fstab.hikey960 \
 			device/linaro/hikey/init.common.usb.rc:root/init.hikey960.usb.rc \
 			device/linaro/hikey/ueventd.common.rc:root/ueventd.hikey960.rc \
 			device/linaro/hikey/common.kl:system/usr/keylayout/hikey960.kl \
-			frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
+			frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
 			frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
 
 # Copy BT firmware
