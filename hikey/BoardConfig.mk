@@ -7,9 +7,9 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
 ifeq ($(TARGET_KERNEL_USE), 3.18)
-BOARD_KERNEL_CMDLINE := console=ttyAMA3,115200 androidboot.console=ttyAMA3 androidboot.hardware=hikey firmware_class.path=/system/etc/firmware efi=noruntime
+BOARD_KERNEL_CMDLINE := console=ttyAMA3,115200 androidboot.console=ttyAMA3 androidboot.hardware=hikey firmware_class.path=/vendor/firmware efi=noruntime
 else
-BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.console=ttyFIQ0 androidboot.hardware=hikey firmware_class.path=/system/etc/firmware efi=noruntime
+BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.console=ttyFIQ0 androidboot.hardware=hikey firmware_class.path=/vendor/firmware efi=noruntime
 endif
 
 ifneq ($(TARGET_SENSOR_MEZZANINE),)

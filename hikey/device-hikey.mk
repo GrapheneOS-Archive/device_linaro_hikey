@@ -25,12 +25,12 @@ PRODUCT_COPY_FILES +=   $(TARGET_PREBUILT_KERNEL):kernel \
 
 # Copy BT firmware
 PRODUCT_COPY_FILES += \
-	device/linaro/hikey/bt-wifi-firmware-util/TIInit_11.8.32.bts:$(TARGET_OUT_ETC)/firmware/ti-connectivity/TIInit_11.8.32.bts
+	device/linaro/hikey/bt-wifi-firmware-util/TIInit_11.8.32.bts:$(TARGET_COPY_OUT_VENDOR)/firmware/ti-connectivity/TIInit_11.8.32.bts
 
 # Copy wlan firmware
 PRODUCT_COPY_FILES += \
-	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-fw-4.bin:$(TARGET_OUT_ETC)/firmware/ti-connectivity/wl18xx-fw-4.bin \
-	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-conf.bin:$(TARGET_OUT_ETC)/firmware/ti-connectivity/wl18xx-conf.bin
+	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-fw-4.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/ti-connectivity/wl18xx-fw-4.bin \
+	device/linaro/hikey/bt-wifi-firmware-util/wl18xx-conf.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/ti-connectivity/wl18xx-conf.bin
 
 # Build HiKey HDMI audio HAL
 PRODUCT_PACKAGES += audio.primary.hikey
