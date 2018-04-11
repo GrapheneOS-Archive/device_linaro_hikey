@@ -71,7 +71,6 @@ GRALLOC_VSYNC_BACKEND?=default
 # HAL module implemenation, not prelinked and stored in
 # hw/<OVERLAY_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
-include $(BUILD_SYSTEM)/version_defaults.mk
 
 ifeq ($(TARGET_BOARD_PLATFORM), juno)
 ifeq ($(MALI_MMSS), 1)
