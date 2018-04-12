@@ -22,7 +22,7 @@
 #include <inttypes.h>
 #include <pthread.h>
 
-#include <cutils/log.h>
+#include <log/log.h>
 #include <cutils/atomic.h>
 
 #include <linux/ion.h>
