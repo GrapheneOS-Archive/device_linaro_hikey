@@ -19,3 +19,6 @@
 
 # /data
 /data/vendor/sensor(/.*)?        u:object_r:sensor_vendor_data_file:s0
+
+/sys/devices/platform/ddr_devfreq/devfreq/ddr_devfreq/min_freq		u:object_r:sysfs_power:s0
+/sys/devices/platform/e82c0000.mali/devfreq/e82c0000.mali/min_freq	u:object_r:sysfs_power:s0
