@@ -15,8 +15,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(info gralloc for hikey960)
-
 # GPU support for AFBC 1.0
 MALI_GPU_SUPPORT_AFBC_BASIC=1
 # GPU support for AFBC 1.1 block split

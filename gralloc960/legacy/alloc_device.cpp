@@ -21,7 +21,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 
-#include <cutils/log.h>
+#include <log/log.h>
 #include <cutils/atomic.h>
 #include <hardware/hardware.h>
 #include <hardware/gralloc.h>
