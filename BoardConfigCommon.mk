@@ -11,7 +11,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 
 TARGET_USES_64_BIT_BINDER := true
 
-WITH_DEXPREOPT ?= true
 USE_OPENGL_RENDERER := true
 
 # BT configs
