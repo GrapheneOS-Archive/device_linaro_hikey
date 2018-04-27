@@ -43,10 +43,8 @@ Output: arch/arm64/boot/Image & arch/arm64/boot/dts/hisilicon/hi6220-hikey.dtb
         Image-dtb-4.9 and hi6220-hikey.dtb-4.9
 
 * Setting monitor resolution
-Add to BOARD_KERNEL_CMDLINE in BoardConfig.mk or
-if you are setting TARGET_BOOTIMAGE_USE_FAT=true edit
-device/linaro/hikey/bootloader/EFI/BOOT/grub.cfg
-Set video= (for example for 24” monitor): video=HDMI-A-1:1280x800@60
+Add to BOARD_KERNEL_CMDLINE in BoardConfig.mk:
+  video= (for example for 24” monitor): video=HDMI-A-1:1280x800@60
 
 * Kernel serial output (uart3):
 J2 (LS Expansion): 1 - Gnd, 11 - Rx, 13 - Tx
