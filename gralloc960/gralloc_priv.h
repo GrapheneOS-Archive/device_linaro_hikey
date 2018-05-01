@@ -23,7 +23,6 @@
 #include <pthread.h>
 #include <errno.h>
 #include <linux/fb.h>
-#include <linux/ion.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/mman.h>

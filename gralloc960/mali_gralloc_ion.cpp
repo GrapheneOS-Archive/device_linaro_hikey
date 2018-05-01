@@ -25,7 +25,6 @@
 #include <log/log.h>
 #include <cutils/atomic.h>
 
-#include <linux/ion.h>
 #include <ion/ion.h>
 #include <sys/ioctl.h>
 

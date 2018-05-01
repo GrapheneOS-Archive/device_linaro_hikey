@@ -21,7 +21,6 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <linux/ion.h>
 #include <sys/mman.h>
 
 #include "mali_gralloc_private_interface_types.h"

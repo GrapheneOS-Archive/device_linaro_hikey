@@ -39,7 +39,6 @@
 #endif
 
 #if GRALLOC_ARM_DMA_BUF_MODULE
-#include <linux/ion.h>
 #include <ion/ion.h>
 #include "ion_4.12.h"
 #endif
