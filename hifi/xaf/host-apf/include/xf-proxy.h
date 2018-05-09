@@ -48,19 +48,19 @@ struct xf_user_msg
 struct xf_proxy_msg
 {
     /* ...session-id field */
-    u32             id;
+    uint32_t             id;
     
     /* ...message opcode */
-    u32             opcode;
+    uint32_t             opcode;
     
     /* ...buffer length */
-    u32             length;
+    uint32_t             length;
     
     /* ...buffer pointer */
-    u32             address;
-uint64_t         v_address;
+    uint64_t             address;
+    uint64_t         v_address;
 
-}/*   __attribute__((__packed__))*/;
+}   __attribute__((__packed__));
 
 typedef struct xf_proxy_msg_driv
 {
@@ -77,7 +77,7 @@ typedef struct xf_proxy_msg_driv
     uint64_t                 address;
     uint64_t                 v_address;
 
-}xf_proxy_message_driv_t;
+}__attribute__((__packed__)) xf_proxy_message_driv_t;
 /*******************************************************************************
  * Buffer pools
  ******************************************************************************/
