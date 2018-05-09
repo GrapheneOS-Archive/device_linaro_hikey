@@ -39,16 +39,17 @@
 typedef struct xf_proxy_message
 {
     /* ...session ID */
-    u32                 session_id;
+    uint32_t                 session_id;
 
     /* ...proxy API command/reponse code */
-    u32                 opcode;
+    uint32_t                 opcode;
 
     /* ...length of attached buffer */
-    u32                 length;
+    uint32_t                 length;
 
     /* ...physical address of message buffer */
-    u32                 address;
+    uint64_t                 address;
+    uint64_t                 v_address;
 
 }   __attribute__((__packed__)) xf_proxy_message_t;
 #else
@@ -68,7 +69,7 @@ typedef struct xf_proxy_message
     uint64_t                 address;
     uint64_t                 v_address;
 
-}/*   __attribute__((__packed__)) */xf_proxy_message_t;
+}   __attribute__((__packed__)) xf_proxy_message_t;
 #endif
 /*******************************************************************************
  * Ring buffer support
