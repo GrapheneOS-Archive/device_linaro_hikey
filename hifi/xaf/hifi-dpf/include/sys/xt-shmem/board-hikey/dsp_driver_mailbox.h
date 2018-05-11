@@ -132,8 +132,9 @@ typedef struct xf_proxy_msg {
 	/* ...length of attached buffer */
 	uint32_t                 length;
 
-	/* ...shared logical address of message buffer */
+	/* ...physical address of message buffer */
 	uint64_t                 address;
+	uint64_t                 v_address;
 
 }	__attribute__((__packed__)) xf_proxy_msg_t;
 
