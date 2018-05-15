@@ -23,7 +23,7 @@ LOCAL_SRC_FILES := 		\
 	utest/xaf-utils-test.c	\
 	utest/xaf-mem-test.c
 
-C_FLAGS := -DXF_TRACE=1 -Wall -Werror #-Wno-everything
+C_FLAGS := -DXF_TRACE=0 -Wall -Werror -Wno-everything
 
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(C_FLAGS)
