@@ -137,8 +137,8 @@ PRODUCT_PACKAGES += \
 
 endif
 
-# Use Launcher3
-PRODUCT_PACKAGES += Launcher3
+# Use Launcher3QuickStep
+PRODUCT_PACKAGES += Launcher3QuickStep
 
 # Copy hardware config file(s)
 PRODUCT_COPY_FILES +=  \
