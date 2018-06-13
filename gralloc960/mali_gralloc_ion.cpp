@@ -274,7 +274,7 @@ unsigned int pick_ion_heap(uint64_t usage)
 	}
 
 #elif defined(ION_HEAP_TYPE_DMA_MASK) && GRALLOC_USE_ION_DMA_HEAP
-	else if (!(usage & GRALLOC_USAGE_HW_VIDEO_ENCODER) && (usage & (GRALLOC_USAGE_HW_FB | GRALLOC_USAGE_HW_COMPOSER)))
+	else if (!(usage & GRALLOC_USAGE_HW_VIDEO_ENCODER) && (usage & (GRALLOC_USAGE_HW_FB)))
 	{
 		heap_mask = ION_HEAP_TYPE_DMA_MASK;
 	}
