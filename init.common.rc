@@ -120,3 +120,9 @@ service watchdogd /sbin/watchdogd 10 20
     class core
     oneshot
     seclabel u:r:watchdogd:s0
+
+service bugreport /system/bin/dumpstate -d -p -B -z \
+    -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
