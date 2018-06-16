@@ -11,6 +11,9 @@
 /dev/ttyAMA1           u:object_r:hci_attach_dev:s0
 /dev/ttyAMA4           u:object_r:hci_attach_dev:s0
 /dev/hifi_misc         u:object_r:audio_device:s0
+/dev/hi_vdec	       u:object_r:video_device:s0
+/dev/hi_venc	       u:object_r:video_device:s0
+
 
 # files in /vendor
 /(vendor|system/vendor)/bin/uim  u:object_r:hci_attach_exec:s0
@@ -22,3 +25,6 @@
 
 /sys/devices/platform/ddr_devfreq/devfreq/ddr_devfreq/min_freq		u:object_r:sysfs_power:s0
 /sys/devices/platform/e82c0000\.mali/devfreq/e82c0000\.mali/min_freq	u:object_r:sysfs_power:s0
+
+/dev/block/platform/soc/f723d000\.dwmmc0/by-name/cache u:object_r:cache_block_device:s0
+/dev/block/platform/soc/f723d000\.dwmmc0/by-name/userdata u:object_r:userdata_block_device:s0
