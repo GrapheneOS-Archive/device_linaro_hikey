@@ -31,7 +31,7 @@
 //#define LOG_NDEBUG 0
 
 #define LOG_TAG "HiKeyPowerHAL"
-#include <utils/Log.h>
+#include <log/log.h>
 
 #include <hardware/hardware.h>
 #include <hardware/power.h>
