@@ -4,8 +4,6 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 #/dev/block/platform/soc/ff3b0000.ufs/by-name/system_a    /system    ext4    ro                                                                   wait
-/dev/block/sdd10    /system    ext4    ro                                                                   wait
-/dev/block/sdd11    /vendor    ext4    ro                                                                   wait
 #/dev/block/platform/soc/ff3b0000.ufs/by-name/cache       /cache     ext4    discard,noauto_da_alloc,data=ordered,user_xattr,barrier=1    wait
 /dev/block/sdd5     /cache     ext4    discard,noatime,noauto_da_alloc,data=ordered,user_xattr,barrier=1    wait
 #/dev/block/platform/soc/ff3b0000.ufs/by-name/userdata    /data      ext4    discard,noauto_da_alloc,data=ordered,user_xattr,barrier=1    wait
