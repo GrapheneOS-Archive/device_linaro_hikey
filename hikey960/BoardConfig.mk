@@ -10,6 +10,10 @@ TARGET_NO_DTIMAGE := false
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=hikey960 console=ttyFIQ0 androidboot.console=ttyFIQ0
 BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware loglevel=15 efi=noruntime
+
+#Enable dtb fstab for treble
+BOARD_KERNEL_CMDLINE += overlay_mgr.overlay_dt_entry=hardware_cfg_enable_android_fstab
+
 ifneq ($(TARGET_SENSOR_MEZZANINE),)
 BOARD_KERNEL_CMDLINE += overlay_mgr.overlay_dt_entry=hardware_cfg_$(TARGET_SENSOR_MEZZANINE)
 endif
