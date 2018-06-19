@@ -1,4 +1,4 @@
-ifneq ($(filter hikey, $(TARGET_DEVICE)),)
+ifneq ($(filter hikey hikey64 hikey32, $(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
