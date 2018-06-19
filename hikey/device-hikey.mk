@@ -16,12 +16,12 @@
 
 PRODUCT_COPY_FILES +=   $(TARGET_PREBUILT_KERNEL):kernel \
                         $(TARGET_PREBUILT_DTB):hi6220-hikey.dtb \
-			$(LOCAL_PATH)/$(TARGET_FSTAB):root/fstab.hikey \
-			device/linaro/hikey/init.common.rc:root/init.hikey.rc \
-			device/linaro/hikey/init.hikey.power.rc:root/init.hikey.power.rc \
-			device/linaro/hikey/init.common.usb.rc:root/init.hikey.usb.rc \
-			device/linaro/hikey/ueventd.common.rc:root/ueventd.hikey.rc \
-			device/linaro/hikey/common.kl:system/usr/keylayout/hikey.kl
+			$(LOCAL_PATH)/$(TARGET_FSTAB):$(TARGET_COPY_OUT_VENDOR)/etc/init/fstab.hikey \
+			device/linaro/hikey/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey.rc \
+			device/linaro/hikey/init.hikey.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey.power.rc \
+			device/linaro/hikey/init.common.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey.usb.rc \
+			device/linaro/hikey/ueventd.common.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+			device/linaro/hikey/common.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/hikey.kl
 
 # Copy BT firmware
 PRODUCT_COPY_FILES += \

@@ -27,7 +27,7 @@ on init
     start watchdogd
 
 on fs
-    mount_all /fstab.${ro.hardware}
+    mount_all /vendor/etc/init/fstab.${ro.hardware}
     setprop ro.crypto.fuse_sdcard false
 
 on post-fs
