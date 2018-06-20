@@ -16,9 +16,15 @@ USE_OPENGL_RENDERER := true
 # BT configs
 BOARD_HAVE_BLUETOOTH := true
 
+# HACK! hikey64_only doesn't build w/ VNDK_VERSION=current
+# This is due to software codecs being required but only
+# building for 32bit. Remove the conditional once 64bit
+# soft-codecs work
+ifeq ($(filter hikey64, $(TARGET_DEVICE)),)
 # enable Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_VNDK_VERSION := current
+endif
 
 # generic wifi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
