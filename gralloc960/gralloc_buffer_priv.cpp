@@ -17,7 +17,7 @@
  */
 
 #include <cutils/ashmem.h>
-#include <cutils/log.h>
+#include <log/log.h>
 #include <sys/mman.h>
 
 #if GRALLOC_USE_GRALLOC1_API == 1
