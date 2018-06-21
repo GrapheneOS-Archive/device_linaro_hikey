@@ -46,8 +46,8 @@ PRODUCT_PACKAGES += audio.primary.hikey960
 PRODUCT_PACKAGES += gralloc.hikey960
 
 #binary blobs from ARM
-PRODUCT_PACKAGES +=	libGLES_mali.so libbccArm.so libRSDriverArm.so libmalicore.bc \
-			vulkan.hikey960.so android.hardware.renderscript@1.0-impl.so \
+PRODUCT_PACKAGES +=	libGLES_mali.so \
+			vulkan.hikey960.so \
 			END_USER_LICENCE_AGREEMENT.txt
 
 PRODUCT_PACKAGES += power.hikey960
