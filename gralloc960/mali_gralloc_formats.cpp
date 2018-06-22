@@ -19,7 +19,7 @@
 #include <string.h>
 #include <dlfcn.h>
 #include <inttypes.h>
-#include <cutils/log.h>
+#include <log/log.h>
 
 #if GRALLOC_USE_GRALLOC1_API == 1
 #include <hardware/gralloc1.h>
