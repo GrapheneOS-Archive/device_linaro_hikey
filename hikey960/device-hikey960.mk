@@ -17,7 +17,7 @@
 PRODUCT_COPY_FILES +=	$(TARGET_PREBUILT_KERNEL):kernel \
 			$(TARGET_PREBUILT_DTB):hi3660-hikey960.dtb
 
-PRODUCT_COPY_FILES +=	$(LOCAL_PATH)/fstab.hikey960:$(TARGET_COPY_OUT_VENDOR)/etc/init/fstab.hikey960 \
+PRODUCT_COPY_FILES +=	$(LOCAL_PATH)/fstab.hikey960:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.hikey960 \
 			device/linaro/hikey/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey960.rc \
 			device/linaro/hikey/init.hikey960.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey960.power.rc \
 			device/linaro/hikey/init.common.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey960.usb.rc \
