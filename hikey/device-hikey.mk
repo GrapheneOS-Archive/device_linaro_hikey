@@ -16,7 +16,7 @@
 
 PRODUCT_COPY_FILES +=   $(TARGET_PREBUILT_KERNEL):kernel \
                         $(TARGET_PREBUILT_DTB):hi6220-hikey.dtb \
-			$(LOCAL_PATH)/$(TARGET_FSTAB):$(TARGET_COPY_OUT_VENDOR)/etc/init/fstab.hikey \
+			$(LOCAL_PATH)/$(TARGET_FSTAB):$(TARGET_COPY_OUT_VENDOR)/etc/fstab.hikey \
 			device/linaro/hikey/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey.rc \
 			device/linaro/hikey/init.hikey.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey.power.rc \
 			device/linaro/hikey/init.common.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey.usb.rc \
