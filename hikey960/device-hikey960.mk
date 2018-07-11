@@ -54,4 +54,18 @@ PRODUCT_PACKAGES += power.hikey960
 
 PRODUCT_PACKAGES += sensors.hikey960
 
-$(call inherit-product-if-exists, vendor/linaro/hikey960/device-vendor.mk)
+# Unfortunately inherit-product doesn't export build variables from the
+# called make file to the caller, so we have to include it directly here.
+# FIXME: Improve this the next time we update the binary package
+ifneq (,$(wildcard vendor/linaro/hikey960/hisilicon/device-partial.mk))
+include vendor/linaro/hikey960/hisilicon/device-partial.mk
+endif
+
+EXPECTED_HISI_CODEC_VERSION := 1
+# Check and make sure the vendor package is the expected version
+ifneq ($(TARGET_HISI_CODEC_VERSION),$(EXPECTED_HISI_CODEC_VERSION))
+$(warning TARGET_HISI_CODEC_VERSION ($(TARGET_HISI_CODEC_VERSION)) does not match exiting the build ($(EXPECTED_HISI_CODEC_VERSION)).)
+$(warning Please download new binaries here:)
+$(warning    https://dl.google.com/dl/android/aosp/hisilicon-hikey960-OPR-3c243263.tgz )
+$(warning And extract in the ANDROID_TOP_DIR)
+endif
