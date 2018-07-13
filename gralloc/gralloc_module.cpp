@@ -37,7 +37,6 @@ static int s_ump_is_open = 0;
 #endif
 
 #if GRALLOC_ARM_DMA_BUF_MODULE
-#include <linux/ion.h>
 #include <ion/ion.h>
 #include <sys/mman.h>
 #endif
