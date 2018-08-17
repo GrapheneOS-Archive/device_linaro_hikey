@@ -52,6 +52,8 @@ PRODUCT_PACKAGES +=	libGLES_mali.so \
 
 PRODUCT_PACKAGES += power.hikey960
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += sys.usb.controller=ff100000.dwc3
+
 PRODUCT_PACKAGES += sensors.hikey960
 
 # Unfortunately inherit-product doesn't export build variables from the
