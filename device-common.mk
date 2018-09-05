@@ -62,6 +62,11 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl
 
+ifeq ($(HIKEY_USE_DRM_HWCOMPOSER), true)
+  BOARD_USES_DRM_HWCOMPOSER := true
+  PRODUCT_PACKAGES += hwcomposer.drm
+endif
+
 # Memtrack
 PRODUCT_PACKAGES += memtrack.default \
     android.hardware.memtrack@1.0-service \

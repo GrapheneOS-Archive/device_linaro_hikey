@@ -54,6 +54,7 @@ on post-fs
 
 # Set supported opengles version
     setprop ro.opengles.version 196608
+    setprop ro.hardware.hwcomposer drm
 
 # If an app forces screen rotation, revert it once the apps closes
     setprop persist.demo.rotationlock 1
