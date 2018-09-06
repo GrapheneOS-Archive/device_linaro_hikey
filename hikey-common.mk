@@ -27,11 +27,7 @@ else
     HIKEY_USE_LEGACY_TI_BLUETOOTH := true
   else
     HIKEY_USE_LEGACY_TI_BLUETOOTH := false
-    ifeq ($(TARGET_KERNEL_USE), 4.9)
-      HIKEY_USE_DRM_HWCOMPOSER := false
-    else
-      HIKEY_USE_DRM_HWCOMPOSER := true
-    endif
+    HIKEY_USE_DRM_HWCOMPOSER := true
   endif
   TARGET_FSTAB := fstab.hikey
 endif
