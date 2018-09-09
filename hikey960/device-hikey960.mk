@@ -48,7 +48,22 @@ PRODUCT_PACKAGES += gralloc.hikey960
 #binary blobs from ARM
 PRODUCT_PACKAGES +=	libGLES_mali.so \
 			vulkan.hikey960.so \
+			libbccArm.so \
+			libRSDriverArm.so \
+			libmalicore.bc \
 			END_USER_LICENCE_AGREEMENT.txt
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/../mali/bifrost/lib/libclcore.bc:vendor/lib/libclcore.bc \
+        $(LOCAL_PATH)/../mali/bifrost/lib/libclcore_neon.bc:vendor/lib/libclcore_neon.bc \
+        $(LOCAL_PATH)/../mali/bifrost/bin/bcc:vendor/bin/bcc \
+        $(LOCAL_PATH)/../mali/bifrost/lib64/libbcc.so:vendor/lib64/libbcc.so \
+        $(LOCAL_PATH)/../mali/bifrost/lib64/libclcore.bc:vendor/lib64/libclcore.bc \
+        $(LOCAL_PATH)/../mali/bifrost/lib64/libLLVM.so:vendor/lib64/libLLVM.so
+
+
+OVERRIDE_RS_DRIVER := libRSDriverArm.so
+PRODUCT_PACKAGES += android.hardware.renderscript@1.0-impl
+PRODUCT_PACKAGES += vndk_package
 
 PRODUCT_PACKAGES += power.hikey960
 

@@ -31,6 +31,10 @@ on fs
     setprop ro.crypto.fuse_sdcard false
 
 on post-fs
+
+    # set RLIMIT_MEMLOCK to 8MB
+    setrlimit 8 8388608 8388608
+
     # For legacy support
     # See storage config details at http://source.android.com/tech/storage/
     # since /storage is mounted on post-fs in init.rc
