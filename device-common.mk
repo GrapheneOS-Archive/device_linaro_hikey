@@ -23,6 +23,9 @@ PRODUCT_VENDOR_KERNEL_HEADERS := device/linaro/hikey/kernel-headers
 # Set custom settings
 DEVICE_PACKAGE_OVERLAYS := device/linaro/hikey/overlay
 
+#Force navkeys on
+PRODUCT_PROPERTY_OVERRIDES += qemu.hw.mainkeys=0
+
 # Add openssh support for remote debugging and job submission
 PRODUCT_PACKAGES += ssh sftp scp sshd ssh-keygen sshd_config start-ssh
 
