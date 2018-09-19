@@ -253,9 +253,9 @@ int main(int argc, const char **argv)
        TRACE(ERROR, _x("Failed to open '%s': %d"), argv[1], errno);
        exit(-1);
     }
-    if ((ofp = fopen("dec-out.pcm", "wb")) == NULL)
+    if ((ofp = fopen("/data/dec-out.pcm", "wb")) == NULL)
     {
-       TRACE(ERROR, _x("Failed to open '%s': %d"), "dec-out.pcm", errno);
+       TRACE(ERROR, _x("Failed to open '%s': %d"), "/data/dec-out.pcm", errno);
        exit(-1);
     }
     p_input  = fp;

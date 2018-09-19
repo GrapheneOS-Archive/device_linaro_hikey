@@ -4,6 +4,7 @@ LOCAL_PATH := $(call my-dir)
 ################################################################################
 
 include $(CLEAR_VARS)
+LOCAL_VENDOR_MODULE := true
 common_C_INCLUDES := 	\
         $(LOCAL_PATH)/include	\
         $(LOCAL_PATH)/include/audio		\
@@ -25,7 +26,9 @@ LOCAL_SRC_FILES := 		\
 
 C_FLAGS := -DXF_TRACE=0 -Wall -Werror -Wno-everything
 
+LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
+LOCAL_C_INCLUDES += external/expat/lib
 LOCAL_CFLAGS := $(C_FLAGS)
 LOCAL_MODULE := libxtensa_proxy
 LOCAL_MODULE_TAGS := optional
@@ -36,6 +39,7 @@ include $(BUILD_STATIC_LIBRARY)
 # xaf-dec-test: fileinput->ogg/pcm decoder->speaker output
 ################################################################################
 include $(CLEAR_VARS)
+LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE := xaf-dec-test
 
 LOCAL_SRC_FILES := \
@@ -52,6 +56,7 @@ include $(BUILD_EXECUTABLE)
 # xaf-dec-mix-test: fileinput->ogg orpcm decoder->Mixer->speaker output
 ################################################################################
 include $(CLEAR_VARS)
+LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE := xaf-dec-mix-test
 
 LOCAL_SRC_FILES := \
