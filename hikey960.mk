@@ -30,6 +30,8 @@ $(call inherit-product, build/target/product/verity.mk)
 PRODUCT_SUPPORTS_BOOT_SIGNER := false
 PRODUCT_SUPPORTS_VERITY_FEC := false
 
+PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=196608
+
 #
 # Overrides
 PRODUCT_NAME := hikey960

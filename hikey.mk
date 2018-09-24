@@ -8,6 +8,8 @@ $(call inherit-product, build/target/product/verity.mk)
 PRODUCT_SUPPORTS_BOOT_SIGNER := false
 PRODUCT_SUPPORTS_VERITY_FEC := false
 
+PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=131072
+
 PRODUCT_NAME := hikey
 PRODUCT_DEVICE := hikey
 PRODUCT_BRAND := Android
