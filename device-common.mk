@@ -14,14 +14,27 @@
 # limitations under the License.
 #
 
+ifneq (,$(filter $(TARGET_PRODUCT),hikey960_tv hikey_tv))
+# Setup TV Build
+USE_OEM_TV_APP := true
+$(call inherit-product, device/google/atv/products/atv_base.mk)
+PRODUCT_CHARACTERISTICS := tv
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
+PRODUCT_IS_ATV := true
+else
 # Adjust the dalvik heap to be appropriate for a tablet.
 $(call inherit-product-if-exists, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+endif
 
 # Set vendor kernel path
 PRODUCT_VENDOR_KERNEL_HEADERS := device/linaro/hikey/kernel-headers
 
 # Set custom settings
 DEVICE_PACKAGE_OVERLAYS := device/linaro/hikey/overlay
+ifneq (,$(filter $(TARGET_PRODUCT),hikey960_tv hikey_tv))
+# Set TV Custom Settings
+DEVICE_PACKAGE_OVERLAYS += device/google/atv/overlay
+endif
 
 #Force navkeys on
 PRODUCT_PROPERTY_OVERRIDES += qemu.hw.mainkeys=0
@@ -147,8 +160,28 @@ PRODUCT_PACKAGES += \
 
 endif
 
+
+ifneq (,$(filter $(TARGET_PRODUCT),hikey960_tv hikey_tv))
+# TV Specific Packages
+PRODUCT_PACKAGES += \
+    TvSettings \
+    LiveTv \
+    google-tv-pairing-protocol \
+    TvProvision \
+    LeanbackSampleApp \
+    TvSampleLeanbackLauncher \
+    TvProvider \
+    SettingsIntelligence \
+    tv_input.default \
+    com.android.media.tv.remoteprovider \
+    InputDevices
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=260
+else
+
 # Use Launcher3QuickStep
 PRODUCT_PACKAGES += Launcher3QuickStep
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=160
+endif
 
 # Copy hardware config file(s)
 PRODUCT_COPY_FILES +=  \

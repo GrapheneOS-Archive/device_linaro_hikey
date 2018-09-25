@@ -34,7 +34,7 @@
 #include <sys/mman.h>
 #include <sys/ioctl.h>
 #include <sys/time.h>
-#include <cutils/log.h>
+#include <log/log.h>
 
 /*******************************************************************************
  * Tracing primitive
