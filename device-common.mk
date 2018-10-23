@@ -23,7 +23,7 @@ PRODUCT_AAPT_PREF_CONFIG := tvdpi
 PRODUCT_IS_ATV := true
 else
 # Adjust the dalvik heap to be appropriate for a tablet.
-$(call inherit-product-if-exists, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 endif
 
 # Set vendor kernel path
@@ -196,7 +196,7 @@ PRODUCT_COPY_FILES +=  \
         frameworks/native/data/etc/android.software.device_admin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_admin.xml
 
 # Include BT modules
-$(call inherit-product-if-exists, device/linaro/hikey/wpan/ti-wpan-products.mk)
+$(call inherit-product, device/linaro/hikey/wpan/ti-wpan-products.mk)
 
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
