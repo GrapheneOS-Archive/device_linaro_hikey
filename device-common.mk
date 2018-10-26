@@ -228,6 +228,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0.vndk-sp\
     android.hardware.graphics.mapper@2.0.vndk-sp\
     android.hardware.graphics.common@1.0.vndk-sp\
+    android.hardware.power@1.0.vndk-sp\
     libvndksupport.vndk-sp\
     libbinder.vndk-sp\
     libhwbinder.vndk-sp\
