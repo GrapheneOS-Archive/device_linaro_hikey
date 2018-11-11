@@ -11,6 +11,10 @@ TARGET_NO_DTIMAGE := false
 BOARD_KERNEL_CMDLINE := androidboot.hardware=hikey960 console=ttyFIQ0 androidboot.console=ttyFIQ0
 BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware loglevel=15 efi=noruntime
 
+ifeq ($(TARGET_BUILTIN_EDID), true)
+BOARD_KERNEL_CMDLINE += drm_kms_helper.edid_firmware=edid/1920x1080.bin
+endif
+
 ifneq ($(TARGET_ANDROID_VERITY),)
 # Enable dtb fstab for treble, with verity and system-as-root
 # NOTE: Disabled by default until b/111829702 is fixed
