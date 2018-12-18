@@ -9,7 +9,12 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 ifeq ($(TARGET_KERNEL_USE), 3.18)
 BOARD_KERNEL_CMDLINE := console=ttyAMA3,115200 androidboot.console=ttyAMA3 androidboot.hardware=hikey firmware_class.path=/vendor/firmware efi=noruntime
 else
+ifeq ($(TARGET_KERNEL_USE), 4.19)
+BOARD_KERNEL_CMDLINE := console=ttyAMA3,115200 androidboot.console=ttyAMA3 androidboot.hardware=hikey firmware_class.path=/vendor/firmware efi=noruntime
+else
+# FIQ debugger is deprecated and we'll remoeve this once kernel support in prebuilts are yanked
 BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.console=ttyFIQ0 androidboot.hardware=hikey firmware_class.path=/vendor/firmware efi=noruntime
+endif
 endif
 
 ifneq ($(TARGET_ANDROID_VERITY),)
