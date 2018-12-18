@@ -8,7 +8,7 @@ TARGET_2ND_CPU_VARIANT := cortex-a73
 
 TARGET_NO_DTIMAGE := false
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=hikey960 console=ttyFIQ0 androidboot.console=ttyFIQ0
+BOARD_KERNEL_CMDLINE := androidboot.hardware=hikey960
 BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware loglevel=15 efi=noruntime
 
 ifeq ($(TARGET_BUILTIN_EDID), true)
