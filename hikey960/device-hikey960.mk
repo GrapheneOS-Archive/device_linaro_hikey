@@ -87,3 +87,8 @@ $(warning Please download new binaries here:)
 $(warning    https://dl.google.com/dl/android/aosp/hisilicon-hikey960-OPR-3c243263.tgz )
 $(warning And extract in the ANDROID_TOP_DIR)
 endif
+
+ifneq ($(TARGET_NO_RECOVERY),true)
+PRODUCT_COPY_FILES += \
+	device/linaro/hikey/init.recovery.common.rc:recovery/root/init.recovery.hikey960.rc
+endif
