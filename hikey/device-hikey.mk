@@ -52,3 +52,8 @@ PRODUCT_PACKAGES += sensors.hikey
 
 # Include mali blobs from ARM
 PRODUCT_PACKAGES += libGLES_mali.so END_USER_LICENCE_AGREEMENT.txt
+
+ifneq ($(TARGET_NO_RECOVERY),true)
+PRODUCT_COPY_FILES += \
+	device/linaro/hikey/init.recovery.common.rc:recovery/root/init.recovery.hikey.rc
+endif
