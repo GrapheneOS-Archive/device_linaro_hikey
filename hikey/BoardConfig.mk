@@ -6,14 +6,21 @@ TARGET_BOARD_PLATFORM := hikey
 TARGET_CPU_VARIANT := cortex-a53
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
-BOARD_KERNEL_CMDLINE := console=ttyAMA3,115200 androidboot.console=ttyAMA3 androidboot.hardware=hikey firmware_class.path=/vendor/firmware efi=noruntime
+BOARD_KERNEL_CMDLINE := androidboot.hardware=hikey firmware_class.path=/vendor/firmware efi=noruntime init=/init
+BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/f723d000.dwmmc0
+BOARD_KERNEL_CMDLINE += console=ttyAMA3,115200 androidboot.console=ttyAMA3
 
-# Enable dtb fstab for treble, with verity and system-as-root
-# NOTE: Disabled by default until b/111829702 is fixed
+# On kernels before 4.19, enable dtb fstab with android-verity. On kernels >=
+# 4.19, both dtb fstab and android-verity are deprecated, so until we have
+# avb2 support in the bootloader, don't enable either feature. The ramdisk
+# fstab needed for the new mechanism will be installed unconditionally; if
+# dtb fstab is present, it will override it automatically.
+ifneq ($(TARGET_KERNEL_USE),4.19)
 BOARD_KERNEL_CMDLINE += overlay_mgr.overlay_dt_entry=hardware_cfg_enable_android_fstab_v2
-BOARD_KERNEL_CMDLINE += rootwait ro init=/init root=/dev/dm-0
+BOARD_KERNEL_CMDLINE += rootwait ro root=/dev/dm-0
 BOARD_KERNEL_CMDLINE += dm=\"system none ro,0 1 android-verity 179:9\"
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+endif
 
 ifneq ($(TARGET_SENSOR_MEZZANINE),)
 BOARD_KERNEL_CMDLINE += overlay_mgr.overlay_dt_entry=hardware_cfg_$(TARGET_SENSOR_MEZZANINE)
