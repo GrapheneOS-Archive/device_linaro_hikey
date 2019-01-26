@@ -1,5 +1,5 @@
 ifndef TARGET_KERNEL_USE
-TARGET_KERNEL_USE=4.9
+TARGET_KERNEL_USE=4.14
 endif
 TARGET_PREBUILT_KERNEL := device/linaro/hikey-kernel/Image.gz-dtb-hikey960-$(TARGET_KERNEL_USE)
 TARGET_PREBUILT_DTB := device/linaro/hikey-kernel/hi3660-hikey960.dtb-$(TARGET_KERNEL_USE)
