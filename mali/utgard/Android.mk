@@ -8,6 +8,7 @@ LOCAL_STRIP_MODULE := false
 LOCAL_SRC_FILES_arm := $(LOCAL_MODULE)
 LOCAL_MODULE_PATH_32 := $(TARGET_OUT_VENDOR)
 LOCAL_MULTILIB := 32
+LOCAL_SHARED_LIBRARIES := libc++ libc libdl liblog libm
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -19,6 +20,7 @@ LOCAL_SRC_FILES_arm64 := lib64/egl/$(LOCAL_MODULE)
 LOCAL_MODULE_PATH_32 := $(TARGET_OUT_VENDOR)/lib/egl/
 LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64/egl/
 LOCAL_MULTILIB := both
+LOCAL_SHARED_LIBRARIES := libc++ libc libdl liblog libm
 include $(BUILD_PREBUILT)
 
 endif
