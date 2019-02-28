@@ -170,6 +170,8 @@ struct private_handle_t
 	union {
 		int     format;
 		int	req_format; /* same name as gralloc960 */
+		/*unused but referenced in drm_hwc */
+		int	internal_format;
 	};
 	int     stride;
 	union
