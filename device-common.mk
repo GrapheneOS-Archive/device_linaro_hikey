@@ -81,6 +81,7 @@ PRODUCT_PACKAGES += vndk_package
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
+    android.hardware.bluetooth.audio@2.0-impl
 
 PRODUCT_PACKAGES += libGLES_android
 
