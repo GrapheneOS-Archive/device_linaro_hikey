@@ -19,7 +19,7 @@ PRODUCT_COPY_FILES +=	$(TARGET_PREBUILT_KERNEL):kernel \
 
 PRODUCT_COPY_FILES +=	$(LOCAL_PATH)/fstab.hikey960:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.hikey960 \
 			device/linaro/hikey/fstab.ramdisk:$(TARGET_COPY_OUT_RAMDISK)/fstab.hikey960 \
-			device/linaro/hikey/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey960.rc \
+			device/linaro/hikey/hikey960/init.hikey960.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey960.rc \
 			device/linaro/hikey/init.hikey960.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey960.power.rc \
 			device/linaro/hikey/init.common.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hikey960.usb.rc \
 			device/linaro/hikey/ueventd.common.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
@@ -72,6 +72,10 @@ PRODUCT_PACKAGES += power.hikey960
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += sys.usb.controller=ff100000.dwc3
 
 PRODUCT_PACKAGES += sensors.hikey960
+
+ifeq ($(HIKEY_USE_DRM_HWCOMPOSER), true)
+  PRODUCT_PACKAGES += hwcomposer.drm_hikey960
+endif
 
 # Unfortunately inherit-product doesn't export build variables from the
 # called make file to the caller, so we have to include it directly here.

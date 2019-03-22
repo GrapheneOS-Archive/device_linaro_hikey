@@ -53,9 +53,6 @@ on post-fs
     setprop status.battery.level_raw  50
     setprop status.battery.level_scale 9
 
-# Set supported opengles version
-    setprop ro.hardware.hwcomposer drm
-
 # If an app forces screen rotation, revert it once the apps closes
     setprop persist.demo.rotationlock 1
 
