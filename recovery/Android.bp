@@ -26,7 +26,8 @@ cc_library_static {
     srcs: [
         "recovery_ui.cpp",
     ],
-    include_dirs: [
-        "bootable/recovery"
+
+    shared_libs: [
+        "librecovery_ui",
     ],
 }
