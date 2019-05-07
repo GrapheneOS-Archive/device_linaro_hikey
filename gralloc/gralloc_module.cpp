@@ -529,6 +529,8 @@ private_module_t::private_module_t()
 	base.unlock = gralloc_unlock;
 	base.perform = NULL;
 	base.lock_ycbcr = gralloc_lock_ycbcr;
+        base.getTransportSize = NULL;
+        base.validateBufferSize = NULL;
 #if defined(GRALLOC_MODULE_API_VERSION_0_3)
 	base.lockAsync = gralloc_lock_async;
 	base.unlockAsync = gralloc_unlock_async;

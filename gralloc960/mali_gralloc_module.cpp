@@ -166,6 +166,8 @@ private_module_t::private_module_t()
 	base.lockAsync_ycbcr = gralloc_lock_ycbcr_async;
 	base.unlockAsync = gralloc_unlock_async;
 	base.perform = NULL;
+        base.getTransportSize = NULL;
+        base.validateBufferSize = NULL;
 	INIT_ZERO(base.reserved_proc);
 #endif
 
