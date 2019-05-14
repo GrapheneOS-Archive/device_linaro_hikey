@@ -54,6 +54,8 @@ PRODUCT_PACKAGES +=	libGLES_mali.so \
 			libRSDriverArm.so \
 			libmalicore.bc \
 			END_USER_LICENCE_AGREEMENT.txt
+
+ifdef $(MALI_RS_DRIVER_AVAILABLE)
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/../mali/bifrost/lib/libclcore.bc:vendor/lib/libclcore.bc \
         $(LOCAL_PATH)/../mali/bifrost/lib/libclcore_neon.bc:vendor/lib/libclcore_neon.bc \
@@ -61,7 +63,7 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/../mali/bifrost/lib64/libbcc.so:vendor/lib64/libbcc.so \
         $(LOCAL_PATH)/../mali/bifrost/lib64/libclcore.bc:vendor/lib64/libclcore.bc \
         $(LOCAL_PATH)/../mali/bifrost/lib64/libLLVM.so:vendor/lib64/libLLVM.so
-
+endif
 
 OVERRIDE_RS_DRIVER := libRSDriverArm.so
 PRODUCT_PACKAGES += android.hardware.renderscript@1.0-impl
