@@ -49,6 +49,12 @@ ifneq (,$(filter $(TARGET_PRODUCT),hikey960_tv hikey_tv))
 DEVICE_PACKAGE_OVERLAYS += device/google/atv/overlay
 endif
 
+#avoid usb crash
+PRODUCT_PRODUCT_PROPERTIES += \
+	persist.adb.nonblocking_ffs=0 \
+	ro.adb.nonblocking_ffs=0 \
+
+
 #Force navkeys on
 PRODUCT_PROPERTY_OVERRIDES += qemu.hw.mainkeys=0
 
