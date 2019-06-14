@@ -41,6 +41,14 @@ PRODUCT_COPY_FILES += \
 	device/linaro/hikey/hifi/firmware/hifi-hikey960.img:$(TARGET_COPY_OUT_VENDOR)/firmware/hifi/hifi.img \
 	device/linaro/hikey/hifi/xaf/host-apf/tools/dhifimesg:/vendor/bin/dhifimesg
 
+#
+# Gatekeeper
+#
+PRODUCT_PACKAGES += \
+    gatekeeper.hikey960 \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
+
 
 # Build HiKey960 HDMI audio HAL. Experimental only may not work. FIXME
 PRODUCT_PACKAGES += audio.primary.hikey960
