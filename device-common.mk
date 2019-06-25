@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+
 ifneq (,$(filter $(TARGET_PRODUCT),hikey960_tv hikey_tv))
 # Setup TV Build
 USE_OEM_TV_APP := true
