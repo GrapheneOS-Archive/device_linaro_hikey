@@ -39,13 +39,6 @@ PRODUCT_PACKAGES += audio.primary.hikey
 # Include USB speed switch App
 PRODUCT_PACKAGES += UsbSpeedSwitch
 
-# Gatekeeper
-#
-PRODUCT_PACKAGES += \
-    gatekeeper.hikey \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
-
 # Build libion
 PRODUCT_PACKAGES += libion
 
