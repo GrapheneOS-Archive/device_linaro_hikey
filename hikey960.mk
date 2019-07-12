@@ -39,7 +39,13 @@ PRODUCT_DEVICE := hikey960
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on hikey960
 
-HIKEY_MODS := $(wildcard device/linaro/hikey-kernel/hikey960/$(TARGET_KERNEL_USE)/*.ko)
-ifneq ($(HIKEY_MODS),)
-  BOARD_VENDOR_KERNEL_MODULES += $(HIKEY_MODS)
+ifneq ($(HIKEY_USES_GKI),)
+  HIKEY_MOD_DIR := device/linaro/hikey-kernel/hikey960/$(TARGET_KERNEL_USE)
+  HIKEY_MODS := $(wildcard $(HIKEY_MOD_DIR)/*.ko)
+  ifneq ($(HIKEY_MODS),)
+    BOARD_VENDOR_KERNEL_MODULES += $(HIKEY_MODS)
+    BOARD_VENDOR_RAMDISK_KERNEL_MODULES += \
+	$(HIKEY_MOD_DIR)/ion_cma_heap.ko \
+	$(HIKEY_MOD_DIR)/ufs-hisi.ko
+  endif
 endif
