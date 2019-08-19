@@ -38,3 +38,8 @@ PRODUCT_NAME := hikey960
 PRODUCT_DEVICE := hikey960
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on hikey960
+
+HIKEY_MODS := $(wildcard device/linaro/hikey-kernel/hikey960/$(TARGET_KERNEL_USE)/*.ko)
+ifneq ($(HIKEY_MODS),)
+  BOARD_VENDOR_KERNEL_MODULES += $(HIKEY_MODS)
+endif
