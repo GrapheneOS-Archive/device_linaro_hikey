@@ -13,3 +13,8 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=131072
 PRODUCT_NAME := hikey
 PRODUCT_DEVICE := hikey
 PRODUCT_BRAND := Android
+
+HIKEY_MODS := $(wildcard device/linaro/hikey-kernel/hikey/$(TARGET_KERNEL_USE)/*.ko)
+ifneq ($(HIKEY_MODS),)
+  BOARD_VENDOR_KERNEL_MODULES += $(HIKEY_MODS)
+endif
