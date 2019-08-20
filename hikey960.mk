@@ -1,5 +1,5 @@
 ifndef TARGET_KERNEL_USE
-TARGET_KERNEL_USE=4.14
+TARGET_KERNEL_USE=4.19
 endif
 TARGET_PREBUILT_KERNEL := device/linaro/hikey-kernel/Image.gz-dtb-hikey960-$(TARGET_KERNEL_USE)
 TARGET_PREBUILT_DTB := device/linaro/hikey-kernel/hi3660-hikey960.dtb-$(TARGET_KERNEL_USE)
@@ -38,3 +38,8 @@ PRODUCT_NAME := hikey960
 PRODUCT_DEVICE := hikey960
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on hikey960
+
+HIKEY_MODS := $(wildcard device/linaro/hikey-kernel/hikey960/$(TARGET_KERNEL_USE)/*.ko)
+ifneq ($(HIKEY_MODS),)
+  BOARD_VENDOR_KERNEL_MODULES += $(HIKEY_MODS)
+endif
