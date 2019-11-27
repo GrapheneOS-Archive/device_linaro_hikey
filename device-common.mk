@@ -103,7 +103,7 @@ PRODUCT_PACKAGES += memtrack.default \
 ifeq ($(HIKEY_USE_LEGACY_TI_BLUETOOTH), true)
 PRODUCT_PACKAGES += android.hardware.bluetooth@1.0-service.hikey uim
 else
-PRODUCT_PACKAGES += android.hardware.bluetooth@1.0-service.btlinux
+PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.btlinux
 endif
 
 # PowerHAL
